@@ -38,7 +38,6 @@ public class HomeActivity extends App
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("CarStats");
         setSupportActionBar(toolbar);
 
         configureFAB();
@@ -70,7 +69,7 @@ public class HomeActivity extends App
                 super.onDrawerClosed(drawerView);
             }
         };
-        Drawer.setDrawerListener(mDrawerToggle);
+        Drawer.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
     }
 

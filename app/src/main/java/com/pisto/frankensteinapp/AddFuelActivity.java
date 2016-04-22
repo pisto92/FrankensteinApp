@@ -11,7 +11,6 @@ public class AddFuelActivity extends App {
         setContentView(R.layout.activity_add_fuel);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Aggiungi pieno");
         setSupportActionBar(toolbar);
     }
 }
