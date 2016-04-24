@@ -1,5 +1,6 @@
 package com.pisto.frankensteinapp;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,17 +19,19 @@ public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.View
 
     private String carModel;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         int holderId;
 
         TextView textView;
         TextView name;
         ImageView icon;
+        private Context context;
 
-        public ViewHolder(View itemView, int ViewType)
+        public ViewHolder(View itemView, int ViewType, Context context)
         {
             super(itemView);
+            this.context = context;
 
             if (ViewType == TYPE_ITEM)
             {
@@ -40,6 +43,11 @@ public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.View
                 name = (TextView) itemView.findViewById(R.id.name);
                 holderId = 0;
             }
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 
@@ -56,12 +64,12 @@ public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.View
         if (viewType == TYPE_ITEM)
         {
             View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_itemrow, parent, false);
-            ViewHolder viewHolderItem = new ViewHolder(item, viewType);
+            ViewHolder viewHolderItem = new ViewHolder(item, viewType, parent.getContext());
             return viewHolderItem;
         } else if (viewType == TYPE_HEADER)
         {
             View holder = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_header, parent, false);
-            ViewHolder viewHolderHeader = new ViewHolder(holder, viewType);
+            ViewHolder viewHolderHeader = new ViewHolder(holder, viewType, parent.getContext());
             return viewHolderHeader;
         }
         return null;

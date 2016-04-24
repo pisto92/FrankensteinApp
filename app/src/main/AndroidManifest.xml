@@ -24,7 +24,7 @@
             android:theme="@style/AppTheme"/>
         <activity
             android:name=".MemoActivity"
-            android:label="@string/title_activity_memo"
+            android:label="Promemoria"
             android:theme="@style/AppTheme">
         </activity>
     </application>
