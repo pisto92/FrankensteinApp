@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.ViewHolder>
+public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.DrawerViewHolder>
 {
 
     private static final int TYPE_HEADER = 0;
@@ -19,16 +19,16 @@ public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.View
 
     private String carModel;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public static class DrawerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         int holderId;
 
         TextView textView;
         TextView name;
         ImageView icon;
-        private Context context;
+        Context context;
 
-        public ViewHolder(View itemView, int ViewType, Context context)
+        public DrawerViewHolder(View itemView, int ViewType, Context context)
         {
             super(itemView);
             this.context = context;
@@ -59,23 +59,23 @@ public class DrawerRowAdapter extends RecyclerView.Adapter<DrawerRowAdapter.View
     }
 
     @Override
-    public DrawerRowAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    public DrawerViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         if (viewType == TYPE_ITEM)
         {
             View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_itemrow, parent, false);
-            ViewHolder viewHolderItem = new ViewHolder(item, viewType, parent.getContext());
+            DrawerViewHolder viewHolderItem = new DrawerViewHolder(item, viewType, parent.getContext());
             return viewHolderItem;
         } else if (viewType == TYPE_HEADER)
         {
             View holder = LayoutInflater.from(parent.getContext()).inflate(R.layout.drawer_header, parent, false);
-            ViewHolder viewHolderHeader = new ViewHolder(holder, viewType, parent.getContext());
+            DrawerViewHolder viewHolderHeader = new DrawerViewHolder(holder, viewType, parent.getContext());
             return viewHolderHeader;
         }
         return null;
     }
 
-    public void onBindViewHolder(DrawerRowAdapter.ViewHolder holder, int position)
+    public void onBindViewHolder(DrawerViewHolder holder, int position)
     {
         if (holder.holderId == 1)
         {
