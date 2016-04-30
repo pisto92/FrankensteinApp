@@ -9,12 +9,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class HomeActivity extends App {
+public class HomeActivity extends App
+{
 
     String titles[] = {"Statistiche", "Promemoria", "Spese", "Informazioni"};
     int icons[] = {
@@ -33,7 +32,8 @@ public class HomeActivity extends App {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -41,35 +41,41 @@ public class HomeActivity extends App {
         setSupportActionBar(toolbar);
 
         configureFAB();
-
         configureDrawer();
     }
 
-    private void configureDrawer() {
+    private void configureDrawer()
+    {
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
         mAdapter = new DrawerRowAdapter(titles, icons, carName);
         mRecyclerView.setAdapter(mAdapter);
 
-        final GestureDetector mGestureDetector = new GestureDetector(HomeActivity.this, new GestureDetector.SimpleOnGestureListener() {
+        final GestureDetector mGestureDetector = new GestureDetector(HomeActivity.this, new GestureDetector.SimpleOnGestureListener()
+        {
 
             @Override
-            public boolean onSingleTapUp(MotionEvent e) {
+            public boolean onSingleTapUp(MotionEvent e)
+            {
                 return true;
             }
 
         });
 
-        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener()
+        {
 
             @Override
-            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent)
+            {
                 View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
 
-                if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+                if (child != null && mGestureDetector.onTouchEvent(motionEvent))
+                {
                     Drawer.closeDrawers();
                     int itemClicked = recyclerView.getChildAdapterPosition(child);
-                    switch (itemClicked) {
+                    switch (itemClicked)
+                    {
                         case 0:
                             break;
                         case 1:
@@ -88,12 +94,14 @@ public class HomeActivity extends App {
             }
 
             @Override
-            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent)
+            {
 
             }
 
             @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept)
+            {
 
             }
         });
@@ -101,15 +109,18 @@ public class HomeActivity extends App {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         Drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, Drawer, toolbar, R.string.app_name, R.string.app_name) {
+        mDrawerToggle = new ActionBarDrawerToggle(this, Drawer, toolbar, R.string.app_name, R.string.app_name)
+        {
 
             @Override
-            public void onDrawerOpened(View drawerView) {
+            public void onDrawerOpened(View drawerView)
+            {
                 super.onDrawerOpened(drawerView);
             }
 
             @Override
-            public void onDrawerClosed(View drawerView) {
+            public void onDrawerClosed(View drawerView)
+            {
                 super.onDrawerClosed(drawerView);
             }
         };
@@ -117,38 +128,28 @@ public class HomeActivity extends App {
         mDrawerToggle.syncState();
     }
 
-    private void launchMemoActivity() {
+    private void launchMemoActivity()
+    {
         Intent launchMemoActivity = new Intent(getApplicationContext(), MemoActivity.class);
         startActivity(launchMemoActivity);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_toolbar_item, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void launchAddFuelActivity() {
+    private void launchAddFuelActivity()
+    {
         Intent launchAddFuelActivity = new Intent(getApplicationContext(), AddFuelActivity.class);
         startActivity(launchAddFuelActivity);
     }
 
-    private void configureFAB() {
+    private void configureFAB()
+    {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        if (fab != null) {
-            fab.setOnClickListener(new View.OnClickListener() {
+        if (fab != null)
+        {
+            fab.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View view)
+                {
                     launchAddFuelActivity();
                 }
             });

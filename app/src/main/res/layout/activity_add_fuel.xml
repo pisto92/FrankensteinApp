@@ -8,31 +8,46 @@
 
     <include layout="@layout/toolbar"/>
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:layout_height="match_parent">
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="inserisci km totali"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="12dp">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="inserisci euro spesi"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="inserisci km totali"/>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="inserisci litri immessi"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="inserisci euro spesi"/>
 
-        <EditText
-            android:layout_width="match_parent"
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="inserisci litri immessi"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="inserisci luogo"/>
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_add_fuel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="inserisci luogo"/>
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:src="@android:drawable/checkbox_on_background"
+            android:stateListAnimator="@anim/anim"/>
+
+    </RelativeLayout>
 </LinearLayout>
