@@ -19,9 +19,9 @@
             android:padding="12dp">
 
             <EditText
+                android:id="@+id/edittext_total_km"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="inserisci km totali"/>
+                android:layout_height="wrap_content"/>
 
             <EditText
                 android:layout_width="match_parent"
