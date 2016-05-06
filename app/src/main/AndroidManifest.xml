@@ -21,7 +21,8 @@
         <activity
             android:name=".AddFuelActivity"
             android:label="Aggiungi pieno"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity
             android:name=".MemoActivity"
             android:label="Promemoria"
