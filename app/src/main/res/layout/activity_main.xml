@@ -24,15 +24,31 @@
                 android:entries="@array/sports_array">
             </ListView>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="16dp"
-                android:src="@drawable/plus"
-                android:stateListAnimator="@anim/anim"/>
+                android:layout_alignParentRight="true">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_history_fuel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:src="@android:drawable/arrow_down_float"
+                    android:stateListAnimator="@anim/anim"/>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/plus"
+                    android:stateListAnimator="@anim/anim"/>
+
+            </LinearLayout>
+
         </RelativeLayout>
     </LinearLayout>
 

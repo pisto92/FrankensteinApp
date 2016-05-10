@@ -25,4 +25,5 @@
         <item>Hockey</item>
     </string-array>
     <string name="title_activity_memo">Promemoria</string>
+    <string name="title_activity_fuel_history">FuelHistoryActivity</string>
 </resources>

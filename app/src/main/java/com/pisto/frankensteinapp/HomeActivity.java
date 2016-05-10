@@ -40,7 +40,8 @@ public class HomeActivity extends App
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        configureFAB();
+        configureFABAddFuel();
+        configureFABHistoryFuel();
         configureDrawer();
     }
 
@@ -140,7 +141,13 @@ public class HomeActivity extends App
         startActivity(launchAddFuelActivity);
     }
 
-    private void configureFAB()
+    private void launchHistoryFuelActivity()
+    {
+        Intent launchHistoryActivity = new Intent(getApplicationContext(), FuelHistoryActivity.class);
+        startActivity(launchHistoryActivity);
+    }
+
+    private void configureFABAddFuel()
     {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if (fab != null)
@@ -151,6 +158,22 @@ public class HomeActivity extends App
                 public void onClick(View view)
                 {
                     launchAddFuelActivity();
+                }
+            });
+        }
+    }
+
+    private void configureFABHistoryFuel()
+    {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_history_fuel);
+        if (fab != null)
+        {
+            fab.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    launchHistoryFuelActivity();
                 }
             });
         }
