@@ -1,5 +1,6 @@
 package com.pisto.frankensteinapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 
 import io.realm.Realm;
@@ -44,7 +46,7 @@ public class App extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_drawer);
-        frameLayout = (FrameLayout)  findViewById(R.id.content_frame);
+        frameLayout = (FrameLayout) findViewById(R.id.content_frame);
 
         database = Realm.getInstance(new RealmConfiguration.Builder(getApplicationContext()).name("carStats.realm").schemaVersion(0).deleteRealmIfMigrationNeeded().build());
     }
@@ -145,6 +147,7 @@ public class App extends AppCompatActivity
             public void onDrawerOpened(View drawerView)
             {
                 super.onDrawerOpened(drawerView);
+                closeKeyboard(drawerView);
             }
 
             @Override
@@ -153,7 +156,14 @@ public class App extends AppCompatActivity
                 super.onDrawerClosed(drawerView);
             }
         };
+
         Drawer.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+    }
+
+    private void closeKeyboard(View drawerView)
+    {
+        InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(drawerView.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 }
