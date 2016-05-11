@@ -1,66 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v4.widget.DrawerLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/DrawerLayout"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="7dp">
+    android:layout_width="match_parent">
+
+    <ListView
+        android:entries="@array/sports_array"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    </ListView>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/toolbar"/>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_history_fuel"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:src="@android:drawable/arrow_down_float"
+            android:stateListAnimator="@anim/anim"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/plus"
+            android:stateListAnimator="@anim/anim"/>
 
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:entries="@array/sports_array">
-            </ListView>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab_history_fuel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:src="@android:drawable/arrow_down_float"
-                    android:stateListAnimator="@anim/anim"/>
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:src="@drawable/plus"
-                    android:stateListAnimator="@anim/anim"/>
-
-            </LinearLayout>
-
-        </RelativeLayout>
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/RecyclerView"
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
+</RelativeLayout>
 
-        android:background="#FFFFFF"
-        android:scrollbars="vertical">
-
-    </android.support.v7.widget.RecyclerView>
-
-</android.support.v4.widget.DrawerLayout>
