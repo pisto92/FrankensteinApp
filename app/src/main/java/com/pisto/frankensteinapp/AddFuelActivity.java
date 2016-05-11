@@ -16,11 +16,7 @@ public class AddFuelActivity extends App
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_fuel);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        getLayoutInflater().inflate(R.layout.activity_add_fuel, frameLayout);
 
         final CoordinatorLayout clayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_add_fuel);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add_fuel);

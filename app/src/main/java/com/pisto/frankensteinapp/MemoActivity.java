@@ -3,15 +3,13 @@ package com.pisto.frankensteinapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import java.util.ArrayList;
 
-public class MemoActivity extends AppCompatActivity
+public class MemoActivity extends App
 {
 
     private RecyclerView memoRecyclerView;
@@ -22,10 +20,7 @@ public class MemoActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_memo);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        getLayoutInflater().inflate(R.layout.activity_memo, frameLayout);
 
         configureMemoRecyclerView();
         configureFAB();
