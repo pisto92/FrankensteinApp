@@ -46,19 +46,31 @@ public class App extends AppCompatActivity
         setContentView(R.layout.layout_drawer);
         frameLayout = (FrameLayout)  findViewById(R.id.content_frame);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         database = Realm.getInstance(new RealmConfiguration.Builder(getApplicationContext()).name("carStats.realm").schemaVersion(0).deleteRealmIfMigrationNeeded().build());
-
-        configureDrawer();
     }
 
     @Override
     public void setContentView(@LayoutRes int layoutResID)
     {
         super.setContentView(layoutResID);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         configureDrawer();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+        startActivity(new Intent(this, HomeActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+    }
+
+    private void launchMemoActivity()
+    {
+        Intent launchMemoActivity = new Intent(getApplicationContext(), MemoActivity.class);
+        startActivity(launchMemoActivity);
     }
 
     private void configureDrawer()
@@ -143,11 +155,5 @@ public class App extends AppCompatActivity
         };
         Drawer.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-    }
-
-    private void launchMemoActivity()
-    {
-        Intent launchMemoActivity = new Intent(getApplicationContext(), MemoActivity.class);
-        startActivity(launchMemoActivity);
     }
 }

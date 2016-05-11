@@ -18,6 +18,12 @@ public class HomeActivity extends App
         configureFABHistoryFuel();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        System.exit(1);
+    }
+
     private void launchAddFuelActivity()
     {
         Intent launchAddFuelActivity = new Intent(getApplicationContext(), AddFuelActivity.class);
