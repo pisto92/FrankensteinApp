@@ -74,6 +74,12 @@ public class App extends AppCompatActivity
         Intent launchMemoActivity = new Intent(getApplicationContext(), MemoActivity.class);
         startActivity(launchMemoActivity);
     }
+    private void launchProvaTabActivity()
+    {
+        Intent launchMemoActivity = new Intent(getApplicationContext(), ProvaTab.class);
+        startActivity(launchMemoActivity);
+    }
+
 
     private void configureDrawer()
     {
@@ -108,6 +114,7 @@ public class App extends AppCompatActivity
                     switch (itemClicked)
                     {
                         case 0:
+                            launchProvaTabActivity();
                             break;
                         case 1:
                             break;

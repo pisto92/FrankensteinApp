@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.pisto.frankensteinapp">
+    package="com.pisto.frankensteinapp">
 
     <application
         android:allowBackup="true"
@@ -13,26 +13,28 @@
             android:label="CarStats"
             android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".AddFuelActivity"
             android:label="Aggiungi pieno"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
             android:name=".MemoActivity"
             android:label="Promemoria"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".FuelHistoryActivity"
             android:label="@string/title_activity_fuel_history"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".ProvaTab"
+            android:label="@string/title_activity_prova_tab"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
