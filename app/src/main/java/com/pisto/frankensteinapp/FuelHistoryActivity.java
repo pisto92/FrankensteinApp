@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-public class FuelHistoryActivity extends App
+public class FuelHistoryActivity extends DrawerActivity
 {
 
     private RecyclerView historyRecyclerView;

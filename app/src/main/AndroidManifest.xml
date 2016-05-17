@@ -32,7 +32,7 @@
             android:label="@string/title_activity_fuel_history"
             android:theme="@style/AppTheme"></activity>
         <activity
-            android:name=".ProvaTab"
+            android:name=".ProvaTabActivity"
             android:label="@string/title_activity_prova_tab"
             android:theme="@style/AppTheme"></activity>
     </application>

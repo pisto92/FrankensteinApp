@@ -9,7 +9,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class MemoActivity extends App
+public class MemoActivity extends DrawerActivity
 {
 
     private RecyclerView memoRecyclerView;

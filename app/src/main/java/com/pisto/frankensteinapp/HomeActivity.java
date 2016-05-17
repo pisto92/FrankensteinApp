@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 
-public class HomeActivity extends App
+public class HomeActivity extends DrawerActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)

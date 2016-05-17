@@ -5,20 +5,48 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
-public class AddFuelActivity extends DrawerActivity
+import io.realm.Realm;
+
+
+public class AddFuelFragment extends Fragment
 {
 
+    private final Realm database;
+    FloatingActionButton fab;
+    CoordinatorLayout clayout;
+
+    public AddFuelFragment(Realm _database)
+    {
+        database = _database;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_add_fuel, frameLayout);
+    }
 
-        final CoordinatorLayout clayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout_add_fuel);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add_fuel);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+
+        View rootView = inflater.inflate(R.layout.fragment_one, container, false);
+        clayout = (CoordinatorLayout) rootView.findViewById(R.id.coordinator_layout_add_fuel);
+        fab = (FloatingActionButton) rootView.findViewById(R.id.fab_add_fuel);
+
+        configureFabAddFuel();
+
+        return rootView;
+    }
+
+    private void configureFabAddFuel()
+    {
         if (fab != null)
         {
             fab.setOnClickListener(new View.OnClickListener()
@@ -47,10 +75,10 @@ public class AddFuelActivity extends DrawerActivity
     private FuelItem createtFuelItemFromField()
     {
 
-        EditText totalkm = (EditText) findViewById(R.id.edittext_total_km);
-        EditText price = (EditText) findViewById(R.id.edittext_price);
-        EditText liters = (EditText) findViewById(R.id.edittext_liters);
-        EditText location = (EditText) findViewById(R.id.edittext_location);
+        EditText totalkm = (EditText) getView().findViewById(R.id.edittext_total_km);
+        EditText price = (EditText) getView().findViewById(R.id.edittext_price);
+        EditText liters = (EditText) getView().findViewById(R.id.edittext_liters);
+        EditText location = (EditText) getView().findViewById(R.id.edittext_location);
 
         FuelItem fuel = new FuelItem();
         fuel.setTotalKm(Integer.parseInt(totalkm.getText().toString()));
@@ -60,4 +88,5 @@ public class AddFuelActivity extends DrawerActivity
 
         return fuel;
     }
+
 }

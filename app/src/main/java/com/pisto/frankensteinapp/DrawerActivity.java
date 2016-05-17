@@ -20,7 +20,7 @@ import android.widget.FrameLayout;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class App extends AppCompatActivity
+public class DrawerActivity extends AppCompatActivity
 {
     Toolbar toolbar;
     Realm database;
@@ -76,7 +76,7 @@ public class App extends AppCompatActivity
     }
     private void launchProvaTabActivity()
     {
-        Intent launchMemoActivity = new Intent(getApplicationContext(), ProvaTab.class);
+        Intent launchMemoActivity = new Intent(getApplicationContext(), ProvaTabActivity.class);
         startActivity(launchMemoActivity);
     }
 
